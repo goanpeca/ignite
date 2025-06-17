@@ -872,8 +872,8 @@ def test__compute_recall_and_precision(available_device):
 def test_compute(sample):
     device = idist.device()
 
-    if device == torch.device("mps"):
-        pytest.skip("Due to MPS backend out of memory")
+    # if device == torch.device("mps"):
+    #     pytest.skip("Due to MPS backend out of memory")
 
     # AP@.5...95, AP@.5, AP@.75, AP-S, AP-M, AP-L, AR-1, AR-10, AR-100, AR-S, AR-M, AR-L
     ap_50_95_ar_100 = ObjectDetectionAvgPrecisionRecall(num_classes=91, device=device)
@@ -932,8 +932,8 @@ def test_integration(sample):
     bs = 3
 
     device = idist.device()
-    if device == torch.device("mps"):
-        pytest.skip("Due to MPS backend out of memory")
+    # if device == torch.device("mps"):
+    #     pytest.skip("Due to MPS backend out of memory")
 
     def update(engine, i):
         b = slice(i * bs, (i + 1) * bs)
