@@ -1003,7 +1003,7 @@ def test_distrib_update_compute(distributed, sample):
 
     device = idist.device()
 
-    if device/.type == "mps":
+    if device.type == "mps":
         pytest.skip("Due to MPS backend out of memory")
 
     metric_device = "cpu" if device.type == "xla" else device
